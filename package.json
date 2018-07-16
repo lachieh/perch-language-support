@@ -2,15 +2,39 @@
     "name": "perch-language-support",
     "displayName": "Perch Language Support",
     "description": "Language Support for the Perch CMS Template files",
-    "version": "0.0.1",
+    "version": "1.0.0",
     "publisher": "lachieh",
     "engines": {
         "vscode": "^1.25.0"
+    },
+    "license": "MIT",
+    "author": {
+        "email": "lachlan@hellotimber.com",
+        "name": "Lachlan Heywood",
+        "url": "http://hellotimber.com"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/lachieh/perch-language-support"
+    },
+    "bugs": {
+        "url": "https://github.com/lachieh/perch-language-support/issues"
     },
     "categories": [
         "Programming Languages",
         "Snippets"
     ],
+    "keywords": [
+        "snippet",
+        "perch",
+        "language"
+    ],
+    "preview": false,
+    "homepage": "https://github.com/lachieh/perch-language-support",
+    "icon": "images/logo.png",
+    "galleryBanner": {
+        "color": "#9fc7dd"
+    },
     "contributes": {
         "grammars": [{
             "scopeName": "text.html.perch",
