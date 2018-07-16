@@ -1,0 +1,21 @@
+{
+    "name": "perch-language-support",
+    "displayName": "Perch Language Support",
+    "description": "Language Support for the Perch CMS Template files",
+    "version": "0.0.1",
+    "publisher": "lachieh",
+    "engines": {
+        "vscode": "^1.25.0"
+    },
+    "categories": [
+        "Programming Languages",
+        "Snippets"
+    ],
+    "contributes": {
+        "grammars": [{
+            "scopeName": "text.html.perch",
+            "injectTo": [ "text.html.basic" ],
+            "path": "./syntaxes/perch.tmLanguage.json"
+        }]
+    }
+}

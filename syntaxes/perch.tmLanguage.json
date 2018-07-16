@@ -1,0 +1,198 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Perch Template",
+    "injectionSelector": "L:text.html.basic, source.js",
+    "scopeName": "text.html.perch",
+	"patterns": [
+		{
+            "name": "source.perch",
+            "begin": "(</?perch:)([A-Za-z-]+)",
+            "beginCaptures": {
+                "1": {
+                    "name": "punctuation.definition.tag.begin.html.perch"
+                },
+                "2": {
+                    "name": "entity.name.tag.block.any.html.perch"
+                }
+            },
+            "end": "(/?>)",
+            "endCaptures": {
+                "1": {
+                    "name": "punctuation.definition.tag.end.html.perch"
+                }
+            },
+            "patterns": [
+                {
+                    "include": "#tag-stuff"
+                }
+            ]
+        }
+	],
+	"repository": {
+        "entities": {
+            "patterns": [
+                {
+                    "captures": {
+                        "1": {
+                            "name": "punctuation.definition.entity.html.perch"
+                        },
+                        "3": {
+                            "name": "punctuation.definition.entity.html.perch"
+                        }
+                    },
+                    "match": "(&)([a-zA-Z0-9]+|#[0-9]+|#[xX][0-9a-fA-F]+)(;)",
+                    "name": "constant.character.entity.html.perch"
+                },
+                {
+                    "match": "&",
+                    "name": "invalid.illegal.bad-ampersand.html.perch"
+                }
+            ]
+        },
+        "string-double-quoted": {
+            "begin": "\"",
+            "beginCaptures": {
+                "0": {
+                    "name": "punctuation.definition.string.begin.html.perch"
+                }
+            },
+            "end": "\"",
+            "endCaptures": {
+                "0": {
+                    "name": "punctuation.definition.string.end.html.perch"
+                }
+            },
+            "name": "string.quoted.double.html.perch",
+            "patterns": [
+                {
+                    "include": "#entities"
+                }
+            ]
+        },
+        "string-single-quoted": {
+            "begin": "'",
+            "beginCaptures": {
+                "0": {
+                    "name": "punctuation.definition.string.begin.html.perch"
+                }
+            },
+            "end": "'",
+            "endCaptures": {
+                "0": {
+                    "name": "punctuation.definition.string.end.html.perch"
+                }
+            },
+            "name": "string.quoted.single.html.perch",
+            "patterns": [
+                {
+                    "include": "#entities"
+                }
+            ]
+        },
+        "tag-generic-attribute": {
+            "patterns": [{
+                "match": "(?<=[^=])\\b([a-zA-Z0-9:-]+)",
+                "name": "entity.other.attribute-name.html.perch"
+            }]
+        },
+        "tag-id-attribute": {
+            "begin": "\\b(id)\\b\\s*(=)",
+            "captures": {
+                "1": {
+                    "name": "entity.other.attribute-name.id.html.perch"
+                },
+                "2": {
+                    "name": "punctuation.separator.key-value.html.perch"
+                }
+            },
+            "end": "(?!\\G)(?<='|\"|[^\\s<>/])",
+            "name": "meta.attribute-with-value.id.html.perch",
+            "patterns": [
+                {
+                    "begin": "\"",
+                    "beginCaptures": {
+                        "0": {
+                            "name": "punctuation.definition.string.begin.html.perch"
+                        }
+                    },
+                    "contentName": "meta.toc-list.id.html.perch",
+                    "end": "\"",
+                    "endCaptures": {
+                        "0": {
+                            "name": "punctuation.definition.string.end.html.perch"
+                        }
+                    },
+                    "name": "string.quoted.double.html.perch",
+                    "patterns": [
+                        {
+                            "include": "#embedded-code"
+                        },
+                        {
+                            "include": "#entities"
+                        }
+                    ]
+                },
+                {
+                    "begin": "'",
+                    "beginCaptures": {
+                        "0": {
+                            "name": "punctuation.definition.string.begin.html.perch"
+                        }
+                    },
+                    "contentName": "meta.toc-list.id.html.perch",
+                    "end": "'",
+                    "endCaptures": {
+                        "0": {
+                            "name": "punctuation.definition.string.end.html.perch"
+                        }
+                    },
+                    "name": "string.quoted.single.html.perch",
+                    "patterns": [
+                        {
+                            "include": "#embedded-code"
+                        },
+                        {
+                            "include": "#entities"
+                        }
+                    ]
+                },
+                {
+                    "captures": {
+                        "0": {
+                            "name": "meta.toc-list.id.html.perch"
+                        }
+                    },
+                    "match": "(?<==)(?:[^\\s<>/'\"]|/(?!>))+",
+                    "name": "string.unquoted.html.perch"
+                }
+            ]
+        },
+        "tag-stuff": {
+            "patterns": [
+                {
+                    "include": "#tag-id-attribute"
+                },
+                {
+                    "include": "#tag-generic-attribute"
+                },
+                {
+                    "include": "#string-double-quoted"
+                },
+                {
+                    "include": "#string-single-quoted"
+                },
+                {
+                    "include": "#unquoted-attribute"
+                }
+            ]
+        },
+        "unquoted-attribute": {
+            "patterns": [
+                {
+                    "match": "(?<==)(?:[^\\s<>/'\"]|/(?!>))+",
+                    "name": "string.unquoted.html.perch"
+                }
+            ]
+        }
+	}
+}
