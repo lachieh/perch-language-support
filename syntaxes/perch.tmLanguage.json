@@ -1,10 +1,10 @@
 {
-	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-	"name": "Perch Template",
-    "injectionSelector": "L:text.html.basic, source.js",
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "name": "Perch Template",
+    "injectionSelector": "L:text.html.basic, L:text.html.derivative, L:source.js",
     "scopeName": "text.html.perch",
-	"patterns": [
-		{
+    "patterns": [
+        {
             "name": "source.perch",
             "begin": "(</?perch:)([A-Za-z-]+)",
             "beginCaptures": {
@@ -27,8 +27,8 @@
                 }
             ]
         }
-	],
-	"repository": {
+    ],
+    "repository": {
         "entities": {
             "patterns": [
                 {
@@ -90,10 +90,12 @@
             ]
         },
         "tag-generic-attribute": {
-            "patterns": [{
-                "match": "(?<=[^=])\\b([a-zA-Z0-9:-]+)",
-                "name": "entity.other.attribute-name.html.perch"
-            }]
+            "patterns": [
+                {
+                    "match": "(?<=[^=])\\b([a-zA-Z0-9:-]+)",
+                    "name": "entity.other.attribute-name.html.perch"
+                }
+            ]
         },
         "tag-id-attribute": {
             "begin": "\\b(id)\\b\\s*(=)",
@@ -194,5 +196,5 @@
                 }
             ]
         }
-	}
+    }
 }
