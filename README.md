@@ -16,11 +16,3 @@ Feel free to suggest other improvements and suggestions. Pull Requests for bugs,
 ## Known Issues
 
 This scope works inside of embedded script tags (i.e. `<script>`), though the `[js]` linter gets confused about syntax inside them.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release release

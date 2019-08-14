@@ -1,6 +1,9 @@
 # Change Log
 All notable changes to the "perch-language-support" extension will be documented in this file.
 
+## 1.1.0
+- Added support for comments `<!--* *-->`
+
 ## 1.0.1
 - Added support for `text.html.derivative` scope.
 - Corrected support for js scope blocks. Linter still gets confused, though.
