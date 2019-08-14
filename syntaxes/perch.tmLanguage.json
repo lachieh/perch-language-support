@@ -1,7 +1,7 @@
 {
     "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
     "name": "Perch Template",
-    "injectionSelector": "L:text.html.basic, L:text.html.derivative, L:source.js",
+    "injectionSelector": "L:text.html.basic, L:text.html.derivative",
     "scopeName": "text.html.perch",
     "patterns": [
         {
@@ -26,6 +26,15 @@
                     "include": "#tag-stuff"
                 }
             ]
+        },
+        {
+            "name": "comment.block.html.perch",
+            "match": "<!--\\*.*\\*-->",
+            "captures": {
+                "0": {
+                    "name": "punctuation.definition.comment.html.perch"
+                }
+            }
         }
     ],
     "repository": {
